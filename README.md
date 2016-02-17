@@ -83,17 +83,11 @@ event: {
 
 Apostrophe will look for a `person` whose `email` property matches the `contactEmail` property of the snippet.
 
-**This module will grant the user in question permission to edit this specific snippet, permanently,** as well as giving them permission to edit media for the duration of their current session.
-
 ## Customizing the template
 
 You can override `views/updateForm.html` to suit yourself. The forms are schema driven and there is only one template because admins can make any number of custom forms at any time, so they need to be fully automated in their rendering.
 
 ## Security concerns
 
-`apostrophe-update-forms` is designed to send out emails with unique links that **log you in** so you can update something. It's designed that way because our clients found it was very frustrating to get contributors to log in. After users submit the form they are **still logged in**.
-
-However, as a security measure, if the user has the `admin` permission sitewide or for any snippet type, they instead receive a message saying that for security reasons they must log in manually.
-
-Control of an email address is usually sufficient to take over an account in any case. But if this relaxed policy doesn't suit your use case, or you have a custom security system that makes this policy unwise for other reasons, this might not be the module for you.
+`apostrophe-update-forms` grants the user permission to edit the specific snippet for the duration of their session, as well as permission to upload media for the duration of their session. For security reasons, they are not logged into their Apostrophe account in the normal sense.
 
