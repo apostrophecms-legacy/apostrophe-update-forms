@@ -83,6 +83,8 @@ event: {
 
 Apostrophe will look for a `person` whose `email` property matches the `contactEmail` property of the snippet.
 
+**Specifying a field to find the person does not actually grant that person editing permissions for the snippet.** Presumably you have already implemented that in a way appropriate to your project for ordinary logins.
+
 ## Customizing the template
 
 You can override `views/updateForm.html` to suit yourself. The forms are schema driven and there is only one template because admins can make any number of custom forms at any time, so they need to be fully automated in their rendering.
