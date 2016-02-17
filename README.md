@@ -83,7 +83,7 @@ event: {
 
 Apostrophe will look for a `person` whose `email` property matches the `contactEmail` property of the snippet.
 
-**Specifying a field to find the person does not actually grant that person editing permissions for the snippet.** Presumably you have already implemented that in a way appropriate to your project for ordinary logins.
+**This module will grant the user in question permission to edit this specific snippet, permanently,** as well as giving them permission to edit media for the duration of their current session.
 
 ## Customizing the template
 
