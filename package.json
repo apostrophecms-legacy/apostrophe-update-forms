@@ -1,0 +1,29 @@
+{
+  "name": "apostrophe-update-forms",
+  "version": "0.5.0",
+  "description": "Helps your website's contributors update out-of-date information via simple, targeted forms that display just a few fields. Unlike apostrophe-moderator this is focused on updating existing content and minimizing all forms of friction that discourage updates.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punkave/apostrophe-update-forms.git"
+  },
+  "keywords": [
+    "apostrophe",
+    "CMS",
+    "forms"
+  ],
+  "author": "P'unk Avenue LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/punkave/apostrophe-update-forms/issues"
+  },
+  "homepage": "https://github.com/punkave/apostrophe-update-forms#readme",
+  "dependencies": {
+    "apostrophe-snippets": "^0.5.87",
+    "async": "^1.5.2",
+    "lodash": "2.4.x"
+  }
+}
