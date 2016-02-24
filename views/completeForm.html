@@ -1,0 +1,30 @@
+{# Your project level layout may be named differently, override this template #}
+{%- extends 'layout.html' -%}
+{%- include "schemas:schemaMacros.html" -%}
+
+{% block main %}
+  {# Your markup will vary to suit your project's layout, override this template #}
+  <div class="outer">
+    <div class="inner row centered padded">
+      <div class="col-6">
+        <h3>{{ form.title | e }}</h3>
+        <h4>{{ object.title | e }}</h4>
+        <div data-apos-update-forms-body>
+          {{ aposArea(form, 'body', aposMerge(bodyOptions, { edit: false })) }}
+        </div>
+        <div class="apos-update-form" data-apos-update-form>
+          {% for field in schema %}
+            {{ aposSchemaField(field) }}
+          {% endfor %}
+          <button class="update-form-save" data-apos-update-forms-save>Save Your Changes</button>
+        </div>
+        <div class="apos-hidden" data-apos-update-forms-thanks>
+          {{ aposArea(form, 'thanks', aposMerge(thanksOptions, { edit: false })) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    apos.updateForms.enableForm({{ schema | json }}, {{ object | json }});
+  </script>
+{% endblock %}

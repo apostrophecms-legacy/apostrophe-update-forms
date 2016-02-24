@@ -24,6 +24,8 @@
   "dependencies": {
     "apostrophe-snippets": "^0.5.87",
     "async": "^1.5.2",
-    "lodash": "2.4.x"
+    "csv-stringify": "^1.0.2",
+    "lodash": "2.4.x",
+    "qs": "^5.0.0"
   }
 }

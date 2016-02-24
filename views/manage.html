@@ -1,0 +1,45 @@
+{% extends 'baseModal.html' %}
+{% include 'uiMacros.html' %}
+{% include 'snippetMacros.html' %}
+
+{{ aposLog(manageClass) }}
+{% block modalClass %}
+  {{manageClass}} apos-ui-modal-no-sidebar
+{% endblock%}
+
+{% block modalControls %}
+  {{ renderProgressBtn({dataAttrs: 'data-cancel', float: 'left', arrow: 'left', label: __('Done')}) }}
+  {{ renderProgressBtn({dataAttrs: newButtonData, float: 'right', arrow: 'right', color: 'base', label: __( 'New %s', __(instanceLabel) | e )}) }}
+{% endblock%}
+
+{% block modalFilters %}
+  <div class="apos-ui-modal-filters-inner">
+    {{ snippetFilters() }}
+  </div>
+{% endblock %}
+
+{% block modalLabel %}
+  {{ __('Manage %s', __(pluralLabel) | e ) }}
+{% endblock %}
+
+{% block modalBody %}
+  <table data-items class="apos-manage-table">
+    <tr>
+      <th class="apos-manage-events-title">{{ __('Title') }}</th>
+      <th class="apos-manage-events-status">{{ __('Actions') }}</th>
+    </tr>
+    <tr class="apos-template" data-item>
+      <td>
+        <span><a href="#" {{ editButtonData }} data-title>{{ __('Sample Title') }}</a></span>
+      </td>
+      <td class="apos-manage-actions">
+        <span>
+          <a href="#" data-edit {{ editButtonData }}>{{ __('Edit') }}</a>
+          <a href="#" data-mail-merge apos->{{ __('Mail Merge') }}</a>
+        </span>
+      </td>
+    </tr>
+  </table>
+  {# Container for pager, which gets rendered here by js #}
+  <div data-pager-box></div>
+{% endblock %}
