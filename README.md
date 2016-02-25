@@ -97,6 +97,10 @@ Apostrophe will call your `getPeople` function, which is responsible for fetchin
 
 You can override `views/updateForm.html` to suit yourself. The forms are schema driven and there is only one template because admins can make any number of custom forms at any time, so they need to be fully automated in their rendering.
 
+## Media
+
+Currently the user cannot upload media unless they already happen to be logged in. It's on our TODO list to fix this so slideshow widgets can be part of the content being updated. It's not hard to port this logic which already exists in `apostrophe-moderator`.
+
 ## Security concerns
 
-`apostrophe-update-forms` grants the user permission to edit the specific snippet for the duration of their session, as well as permission to upload media for the duration of their session. For security reasons, they are not logged into their Apostrophe account in the normal sense.
+`apostrophe-update-forms` grants the user permission to edit the specific snippet for the duration of their session. Eventually it will also provide permission to upload media for the duration of their session. For security reasons, they are not logged into their Apostrophe account in the normal sense.
