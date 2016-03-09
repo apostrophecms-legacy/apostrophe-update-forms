@@ -1,0 +1,15 @@
+{# Override this template to work with your project's styles and layout. #}
+{# Just an example. #}
+
+{% extends 'layout.html' %}
+{% block main %}
+  <div class="outer">
+    <div class="inner row centered padded">
+      <div class="col-6">
+        <h5>{{ __('Error') }}</h5>
+        <h4>{{ __('That form could not be found.') }}</h4>
+        <p>{{ __('That link may no longer be valid, or you may have copied and pasted it incorrectly.') }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

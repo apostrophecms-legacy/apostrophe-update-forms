@@ -267,7 +267,7 @@ updateForms.UpdateForms = function(options, callback) {
     return async.series([ getPerson, getForm, getObject ], function(err) {
       if (err) {
         console.error(err);
-        return res.send(self.renderPage(req, 'notFound', {}));
+        return res.send(self.renderPage(req, 'notfound', {}));
       } else {
         schema = flattenFormFields();
         if (req.method === 'GET') {
@@ -295,7 +295,7 @@ updateForms.UpdateForms = function(options, callback) {
     }
 
     function getForm(callback) {
-      return self.getOne(req, { _id: formId }, { permissions: false }, function(err, _form) {
+      return self.getOne(req, { _id: formId }, { permissions: false, published: true }, function(err, _form) {
         if (err) {
           return callback(err);
         }

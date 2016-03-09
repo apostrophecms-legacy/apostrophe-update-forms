@@ -2,8 +2,14 @@ apos.updateForms = {
   enableForm: function(schema, object) {
     $(function() {
       var $form = $('[data-apos-update-form]');
+
+      // Focus first, unless it's a selectize dropdown. Borrowed from modals
+      if ($form.find(".apos-fieldset:first.apos-fieldset-selectize, form:not(.apos-filter) .apos-fieldset:first.apos-fieldset-array .apos-fieldset:first.apos-fieldset-selectize").length === 0 ) {
+        $form.find(".apos-fieldset:not([data-extra-fields-link]):first :input:visible:enabled:first").focus();
+      }
+
       $('body').on('click', '[data-apos-update-forms-save]', function() {
-        return aposSchemas.convertFields($form, schema, object, function(err) {
+        aposSchemas.convertFields($form, schema, object, function(err) {
           if (err) {
             // Errors have been displayed, let them keep trying
             return;
