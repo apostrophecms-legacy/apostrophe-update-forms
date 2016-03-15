@@ -29,6 +29,7 @@ apos.updateForms = {
         return false;
       });
       return aposSchemas.populateFields($form, schema, object, function(err) {
+        apos.emit('updateFormsAfterPopulatingForm', schema, $form, object);
         // Nothing more to do
       });
     });
