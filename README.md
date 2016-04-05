@@ -104,3 +104,7 @@ Currently the user cannot upload media unless they already happen to be logged i
 ## Security concerns
 
 `apostrophe-update-forms` grants the user permission to edit the specific snippet for the duration of their session. Eventually it will also provide permission to upload media for the duration of their session. For security reasons, they are not logged into their Apostrophe account in the normal sense.
+
+## Changelog
+
+0.5.4: factored out `getMailMergeHeadings` and `getMailMergeRow` methods to allow project-level extension of the data to be included in mailmerges. Keep in mind that joins are performed as specified in your schema, so everything you need is likely to be there.
