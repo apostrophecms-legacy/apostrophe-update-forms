@@ -83,22 +83,13 @@ updateForms.UpdateForms = function(options, callback) {
         return res.send('not found');
       }
       var data = [];
-      data.push([ 'First Name', 'Last Name', 'Full Name', 'Email', 'Content', 'URL' ]);
+      data.push(self.getMailMergeHeadings());
 
       _.each(objects, function(object) {
         if (!_.has(mergeKeys, object._id)) {
           return;
         }
-        data.push([
-          object._person.firstName,
-          object._person.lastName,
-          object._person.title,
-          object._person.email,
-          object.title,
-          baseUrl + self._action + '/complete-form?' + qs.stringify({
-            mergeKey: mergeKeys[object._id]
-          })
-        ]);
+        data.push(self.getMailMergeRow(object, baseUrl, mergeKeys ));
       });
       res.attachment('mail-merge.csv');
       return csv(data, function(err, s) {
@@ -479,6 +470,23 @@ updateForms.UpdateForms = function(options, callback) {
   // Override me if you need special considerations when actually storing the updated object
   self.saveForm = function(type, req, slug, object, callback) {
     return self._pages.getManager(type).putOne(req, slug, { permissions: false }, object, callback);
+  };
+
+  self.getMailMergeHeadings = function() {
+    return [ 'First Name', 'Last Name', 'Full Name', 'Email', 'Content', 'URL' ];
+  };
+
+  self.getMailMergeRow = function(object, baseUrl, mergeKeys) {
+    return [
+      object._person.firstName,
+      object._person.lastName,
+      object._person.title,
+      object._person.email,
+      object.title,
+      baseUrl + self._action + '/complete-form?' + qs.stringify({
+        mergeKey: mergeKeys[object._id]
+      })
+    ];
   };
 
   if (callback) {
