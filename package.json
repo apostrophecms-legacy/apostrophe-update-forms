@@ -1,6 +1,6 @@
 {
   "name": "apostrophe-update-forms",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Helps your website's contributors update out-of-date information via simple, targeted forms that display just a few fields. Unlike apostrophe-moderator this is focused on updating existing content and minimizing all forms of friction that discourage updates.",
   "main": "index.js",
   "scripts": {
