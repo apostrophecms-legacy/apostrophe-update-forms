@@ -9,11 +9,13 @@ apos.updateForms = {
       }
 
       $('body').on('click', '[data-apos-update-forms-save]', function() {
+        apos.emit('updateFormsBeforeConvertingForm', schema, $form, object);
         aposSchemas.convertFields($form, schema, object, function(err) {
           if (err) {
             // Errors have been displayed, let them keep trying
             return;
           }
+          apos.emit('updateFormsAfterConvertingForm', schema, $form, object);
           apos.globalBusy(true);
           return $.jsonCall(window.location.href, object, function(result) {
             apos.globalBusy(false);
