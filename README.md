@@ -107,4 +107,6 @@ Currently the user cannot upload media unless they already happen to be logged i
 
 ## Changelog
 
+0.5.5: emit events before and after converting the form to make enhancement at the project level simple.
+
 0.5.4: factored out `getMailMergeHeadings` and `getMailMergeRow` methods to allow project-level extension of the data to be included in mailmerges. Keep in mind that joins are performed as specified in your schema, so everything you need is likely to be there.
