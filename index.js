@@ -331,9 +331,13 @@ updateForms.UpdateForms = function(options, callback) {
         fieldNames = fieldNames.concat(form[name]);
       });
       // We actually do want a flat schema, so don't use subset
-      return _.map(fieldNames, function(name) {
+      var flattenedSchema = _.map(fieldNames, function(name) {
         return _.find(originalSchema, { name: name });
       });
+      // TODO One of the fields in this schema was returning undefined upon
+      // flattening. This could be caused by some other issue, but omitting
+      // that field seems to stop the bleeding. - Jimmy & Austin
+      return _.filter(flattenedSchema, function(item) { return !!item; });
     }
 
     function sendForm() {
