@@ -84,7 +84,6 @@ updateForms.UpdateForms = function(options, callback) {
       }
       var data = [];
       data.push(self.getMailMergeHeadings());
-
       _.each(objects, function(object) {
         if (!_.has(mergeKeys, object._id)) {
           return;
@@ -185,7 +184,6 @@ updateForms.UpdateForms = function(options, callback) {
       }
 
       return self._pages.getManager('person').get(req, criteria, { published: null, fields: fields, withJoins: false, areas: false }, function(err, results) {
-
         if (err) {
           return callback(err);
         }
@@ -206,7 +204,7 @@ updateForms.UpdateForms = function(options, callback) {
         } else if (joinType === 'joinByPersonField') {
           var peopleByField = _.indexBy(people, mailMerge.personField);
           _.each(objects, function(object) {
-            if (_.has(peopleByField[object[mailMerge.field]])) {
+            if (_.has(peopleByField, object[mailMerge.field])) {
               object._person = peopleByField[object[mailMerge.field]];
             }
           });
