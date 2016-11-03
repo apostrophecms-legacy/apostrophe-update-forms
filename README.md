@@ -1,5 +1,9 @@
 # apostrophe-update-forms
 
+## CURRENTLY FOR 0.5, NOT 2.0
+
+This module is not currently for Apostrophe 2.0.
+
 Helps your website's contributors update out-of-date information via simple, targeted forms that display just a few fields. Unlike apostrophe-moderator this module is focused on updating existing content, and minimizing all forms of friction that discourage updates.
 
 ## Configuration
